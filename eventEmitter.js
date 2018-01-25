@@ -1,13 +1,4 @@
-var EventEmitter = require('events').EventEmitter;
-var util = require('util');
-
-//Constructor Object
-var Person = function (name) {
-    this.name = name;
-    
-};
-util.inherits(Person, EventEmitter);
-
+var Person = require('./lib/Person');
 //New Person
 var ben = new Person('Ben Franklin');
 //Since Person is inherited it can listen for events
