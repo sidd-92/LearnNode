@@ -1,10 +1,18 @@
-var events = require('events');
-var emmiter = new events.EventEmitter();
+var EventEmitter = require('events').EventEmitter;
+var util = require('util');
 
-emmiter.on('customEvent', (message,status) => {
-console.log(`${status}:${message}`);
+//Constructor Object
+var Person = function (name) {
+    this.name = name;
+    
+};
+util.inherits(Person, EventEmitter);
 
+//New Person
+var ben = new Person('Ben Franklin');
+//Since Person is inherited it can listen for events
 
+ben.on('speak', (said) => {
+    console.log(`${ben.name} : ${said}`);
 });
-//The Emitter , message, status
-emmiter.emit('customEvent', "Hello World",200);
+ben.emit('speak', "A Circle Is Pointless");
