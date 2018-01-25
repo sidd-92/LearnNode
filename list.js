@@ -1,3 +1,9 @@
 var fs = require('fs');
-var files = fs.readdirSync('./lib');
-console.log(files);
+fs.readdir('./lib', (err,files) => {
+    if (err) {
+        throw err;    
+    }
+    console.log(files);
+
+});
+
